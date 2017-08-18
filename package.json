@@ -4,15 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bell": "^8.7.0",
     "boom": "^5.2.0",
+    "dogwater": "^2.3.0",
     "hapi": "^16.5.2",
     "hapi-auth-cookie": "^7.0.0",
-    "hapi-mongodb": "^6.2.1"
+    "hapi-handlers-waterline": "^1.0.1",
+    "hapi-mongodb": "^6.2.1",
+    "sails-mongo": "^0.12.2",
+    "waterline": "^0.11.11"
   }
 }
