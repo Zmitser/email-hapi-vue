@@ -22,10 +22,9 @@ module.exports = (server) =>  [
                         console.log("Fetching user...");
                         user = existUser;
                     }
-                    request.cookieAuth.set({user});
+                    request.cookieAuth.set(user);
                     return reply.redirect('/');
                 });
-
             }
         }
     },
@@ -33,9 +32,28 @@ module.exports = (server) =>  [
         method: 'GET',
         path: '/',
         config: {
+            auth: {
+                mode: 'try',
+                strategy: 'session'
+            },
+            plugins: {
+                'hapi-auth-cookie': {
+                    redirectTo: false
+                }
+            },
+            handler: function (request, reply) {
+                reply('<pre>' + JSON.stringify(request.auth.credentials, null, 4) + '</pre>');
+            }
+        }
+    },
+    {
+        method: 'GET',
+        path: '/api/v1/logout',
+        config: {
             auth: 'session',
             handler: function (request, reply) {
-                reply('<pre>' + JSON.stringify(request.auth.credentials.user, null, 4) + '</pre>');
+                request.cookieAuth.clear();
+                return reply.redirect('/');
             }
         }
     }

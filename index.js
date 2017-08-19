@@ -13,9 +13,9 @@ server.connection({port: 3000});
 
 const dogwaterOptions = keys.mongoConfig;
 
-server.register([Bell,   {register: Dogwater, options: dogwaterOptions}, AuthCookie], function (err) {
-    google(server, keys);
+server.register([Bell, {register: Dogwater, options: dogwaterOptions},  AuthCookie], function (err) {
     session(server);
+    google(server, keys);
     server.route(authRoutes(server));
     server.start();
 });
