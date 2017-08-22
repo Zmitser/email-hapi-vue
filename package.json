@@ -6,19 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bell": "^8.7.0",
     "boom": "^5.2.0",
+    "concurrently": "^3.5.0",
     "dogwater": "^2.3.0",
     "hapi": "^16.5.2",
     "hapi-auth-cookie": "^7.0.0",
     "hapi-handlers-waterline": "^1.0.1",
     "hapi-mongodb": "^6.2.1",
-    "sails-mongo": "^0.12.2",
+    "sails-mongo": "^0.12.3",
     "waterline": "^0.11.11"
   }
 }
