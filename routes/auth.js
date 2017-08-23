@@ -11,7 +11,7 @@ module.exports = (server) =>  [
                 }
                 const profile = request.auth.credentials.profile;
                 const User = server.collections().user;
-                User.findOne({userId: profile.id}).then(existUser => {
+              User.findOne({userId: profile.id}).then(existUser => {
                     let user;
                     if (!existUser) {
                         console.log("Creating user...");
@@ -23,14 +23,14 @@ module.exports = (server) =>  [
                         user = existUser;
                     }
                     request.cookieAuth.set(user);
-                    return reply.redirect('/');
+                    return reply.redirect(request.headers.referer);
                 });
             }
         }
     },
     {
         method: 'GET',
-        path: '/',
+        path: '/api/v1/profile',
         config: {
             auth: {
                 mode: 'try',

@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import App from './App'
+import Header from './components/Header.vue'
 import router from './router'
 
 Vue.use(Vuetify)
+Vue.component('v-header', Header)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

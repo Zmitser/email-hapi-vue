@@ -1,7 +1,5 @@
 <template lang="pug">
-  v-container
-    div
-      p Sign Up
+      v-header
 </template>
 
 <script>
