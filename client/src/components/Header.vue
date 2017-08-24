@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-app
+  div
     v-navigation-drawer(temporary v-model="sideNav")
       v-list
         v-list-tile(href="/auth/google")

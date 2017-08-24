@@ -23,7 +23,7 @@ module.exports = (server) =>  [
                         user = existUser;
                     }
                     request.cookieAuth.set(user);
-                    return reply.redirect(request.headers.referer);
+                    return reply.redirect("http://localhoat:8080/surveys");
                 });
             }
         }
@@ -53,7 +53,7 @@ module.exports = (server) =>  [
             auth: 'session',
             handler: function (request, reply) {
                 request.cookieAuth.clear();
-                return reply.redirect('/');
+                return reply.redirect("http://localhost:8080");
             }
         }
     }

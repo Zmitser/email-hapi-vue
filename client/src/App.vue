@@ -1,7 +1,11 @@
 <template lang="pug">
-      v-header
+  v-app
+    v-header
+    main
+      v-container(fluid)
+          v-layout(column align-center)
+              router-view
 </template>
-
 <script>
   export default {
     data () {
